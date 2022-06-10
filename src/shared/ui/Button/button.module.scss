@@ -5,9 +5,9 @@
     align-items: center;
     justify-content: center;
 
-    background-color: #3e505b;
-    border: 1px solid #3e505b;
-    border-radius: 4px;
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
     color: #fff;
     font-weight: 600;
 
@@ -26,17 +26,15 @@
     }
 
     &:focus {
-        box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 0 inset,
-            rgba(50, 50, 93, 0.2) 0 1px 8px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
-            rgba(26, 29, 26, 0.2) 0 0 0 4px;
+        box-shadow: var(--focus-outline);
     }
     &--icon {
         padding: 6px;
     }
     &--outlined {
-        border: 1px solid #3e505b;
-        background-color: #fff;
-        color: #3e505b;
+        background-color: transparent;
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
         &:hover {
             background-color: #8ab0ab28;
         }
