@@ -1,0 +1,47 @@
+.button {
+    padding: 6px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #3e505b;
+    border: 1px solid #3e505b;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+
+    transition: background-color 0.5s, border-color 0.5s;
+    cursor: pointer;
+    outline: none;
+    touch-action: manipulation;
+
+    &:hover {
+        background-color: #1a1d1a;
+        border-color: #1a1d1a;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+
+    &:focus {
+        box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 0 inset,
+            rgba(50, 50, 93, 0.2) 0 1px 8px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+            rgba(26, 29, 26, 0.2) 0 0 0 4px;
+    }
+    &--icon {
+        padding: 6px;
+    }
+    &--outlined {
+        border: 1px solid #3e505b;
+        background-color: #fff;
+        color: #3e505b;
+        &:hover {
+            background-color: #8ab0ab28;
+        }
+    }
+    &--fluid {
+        min-width: 100%;
+    }
+}
