@@ -1,3 +1,13 @@
 :root {
     --app-background: #eeeeee;
+    --accent-color: #3e505b;
+    --error: #ef4444;
+    --border-radius: 4px;
+
+    --focus-outline: rgba(50, 50, 93, 0.1) 0 0 0 0 inset,
+        rgba(50, 50, 93, 0.2) 0 1px 8px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+        rgba(26, 29, 26, 0.2) 0 0 0 4px;
+    --error-focus-outline: rgba(50, 50, 93, 0.1) 0 0 0 0 inset,
+        rgba(50, 50, 93, 0.2) 0 1px 8px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+        rgba(239, 68, 68, 0.2) 0 0 0 4px;
 }

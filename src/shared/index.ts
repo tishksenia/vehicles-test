@@ -1,2 +1,3 @@
-export { Button } from './ui';
+export { Button, Input } from './ui';
+
 export * from './ui';

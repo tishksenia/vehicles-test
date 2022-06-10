@@ -1,0 +1,30 @@
+.wrapper {
+    label {
+        display: flex;
+        flex-direction: column;
+    }
+    .label-text {
+        font-weight: 600;
+    }
+}
+
+.input {
+    padding: 6px 12px;
+
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+
+    outline: 0;
+    &:focus {
+        box-shadow: var(--focus-outline);
+    }
+    &--error {
+        border-color: var(--error);
+        color: var(--error);
+
+        font-weight: 400;
+        &:focus {
+            box-shadow: var(--error-focus-outline);
+        }
+    }
+}
