@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import vehicleReducer from 'entities/vehicle/model/vehicleSlice';
 
 const store = configureStore({
     reducer: {
-        // vehicles: vehiclesReducer,
+        vehicles: vehicleReducer,
     },
 });
 
