@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'app/config/hooks';
-import { Vehicle } from 'entities/vehicle/model/types';
-import { addMultipleVehicles } from 'entities/vehicle/model/vehicleSlice';
+import { Vehicle } from 'entities/vehicle';
+import { addMultipleVehicles } from 'entities/vehicle';
 
 import { ImportFile } from './ImportFile';
 

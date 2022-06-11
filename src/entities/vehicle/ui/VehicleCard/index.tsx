@@ -1,5 +1,8 @@
 import { FC } from 'react';
-import { Button, getCSSVariableValue, TrashIcon } from 'shared';
+
+import { Button } from 'shared';
+import { RemoveVehicle } from 'features/RemoveVehicle';
+
 import { Vehicle } from '../../model/types';
 import { VehicleProperty } from '../VehicleProperty';
 
@@ -23,9 +26,7 @@ export const VehicleCard: FC<Props> = ({ vehicle }) => {
             </div>
             <div className={styles.controls}>
                 <Button outlined>Edit</Button>
-                <Button outlined>
-                    <TrashIcon color={getCSSVariableValue('--accent-color')} />
-                </Button>
+                <RemoveVehicle id={vehicle.id} />
             </div>
         </div>
     );

@@ -15,8 +15,12 @@ const vehicleSlice = createSlice({
         addMultipleVehicles: (state, action: PayloadAction<Vehicle[]>) => {
             return [...state, ...action.payload];
         },
+        removeVehicle: (state, action: PayloadAction<{ id: string }>) => {
+            return state.filter((vehicle) => action.payload.id !== vehicle.id);
+        },
     },
 });
 
-export const { addMultipleVehicles, addVehicle } = vehicleSlice.actions;
+export const { addMultipleVehicles, addVehicle, removeVehicle } =
+    vehicleSlice.actions;
 export default vehicleSlice.reducer;
