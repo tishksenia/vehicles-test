@@ -10,11 +10,12 @@ interface CustomProps extends HTMLProps<HTMLInputElement> {
 }
 
 export const Input = forwardRef<HTMLInputElement, CustomProps>(
-    ({ label, error, className, fluid, ...rest }, ref) => {
+    ({ label, error, fluid, ...rest }, ref) => {
         const inputClassName = [
             styles['input'],
             error ? styles['input--error'] : '',
             fluid ? styles['input--fluid'] : '',
+            rest.className || '',
         ].join(' ');
 
         return (

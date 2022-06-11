@@ -21,6 +21,7 @@ export const Select = forwardRef<HTMLSelectElement, CustomProps>(
             styles['select'],
             fluid ? styles['select--fluid'] : '',
             error ? styles['select--error'] : '',
+            rest.className || '',
         ].join(' ');
 
         return (
