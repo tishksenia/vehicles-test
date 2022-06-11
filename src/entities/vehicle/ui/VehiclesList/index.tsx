@@ -12,6 +12,11 @@ export const VehiclesList = () => {
             {vehicles.map((vehicle) => (
                 <VehicleCard vehicle={vehicle} key={vehicle.id} />
             ))}
+            {!vehicles.length && (
+                <p className={styles['empty-list']}>
+                    No vehicles could be found.
+                </p>
+            )}
         </div>
     );
 };

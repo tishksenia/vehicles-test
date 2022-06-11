@@ -1,8 +1,26 @@
 .vehicles-list {
+    width: 100%;
     padding-top: 12px;
 
     display: inline-flex;
     flex-wrap: wrap;
     gap: 12px;
     justify-content: space-between;
+
+    // fix for the last row
+    // (if there's 2/3 or 1/2 elements, they will be aligned)
+    &::after {
+        content: '';
+        flex: auto;
+    }
+}
+
+.empty-list {
+    width: 100%;
+    padding: 20px 0;
+
+    opacity: 0.6;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    text-align: center;
 }
