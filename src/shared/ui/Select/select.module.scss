@@ -18,11 +18,18 @@
         background-color: #fff;
     }
 
+    &:hover {
+        cursor: pointer;
+    }
+
     &:focus {
         box-shadow: var(--focus-outline);
     }
     &:disabled {
         opacity: var(--disabled-opacity);
+        &:hover {
+            cursor: default;
+        }
     }
     &--fluid {
         min-width: 100%;
