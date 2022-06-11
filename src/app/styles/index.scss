@@ -1,2 +1,7 @@
-@import './normalize.scss';
+@import './reset.scss';
 @import './vars.scss';
+@import './typography.scss';
+
+body {
+    background-color: var(--app-background);
+}
