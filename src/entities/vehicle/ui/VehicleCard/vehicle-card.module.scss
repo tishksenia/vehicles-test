@@ -1,0 +1,43 @@
+.vehicle-card {
+    width: 100%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow-wrap: break-word;
+
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: var(--border-radius);
+
+    @media screen and (min-width: 700px) {
+        width: 48%;
+    }
+    @media screen and (min-width: 800px) {
+        width: 32%;
+    }
+
+    .header {
+        margin-bottom: 10px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: space-between;
+
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        padding-top: 20px;
+
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        gap: 12px;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,22 @@
+.vehicle-property {
+    display: flex;
+    flex-direction: column;
+    .value {
+        overflow-wrap: anywhere;
+        flex-basis: 60%;
+    }
+
+    .title {
+        flex-basis: 25%;
+        padding-right: 5px;
+
+        font-weight: 600;
+    }
+
+    @media screen and (min-width: 1200px) {
+        flex-direction: row;
+        .value {
+            align-self: flex-end;
+        }
+    }
+}
