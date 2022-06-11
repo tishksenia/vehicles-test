@@ -1,18 +1,19 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import styles from './vehicle-property.module.scss';
 
 interface Props {
     title: string;
-    // assuming that sometimes value can be falsy
-    value?: string;
 }
 
-export const VehicleProperty: FC<Props> = ({ title, value }) => {
+export const VehicleProperty: FC<PropsWithChildren<Props>> = ({
+    title,
+    children,
+}) => {
     return (
         <div className={styles['vehicle-property']}>
             <span className={styles.title}>{title}:</span>
-            <span className={styles.value}>{value || '-'}</span>
+            <span className={styles.value}>{children || '-'}</span>
         </div>
     );
 };
