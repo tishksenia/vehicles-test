@@ -2,16 +2,16 @@
     width: 100%;
     padding-top: 12px;
 
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100%);
     justify-content: space-between;
+    grid-gap: 12px;
 
-    // fix for the last row
-    // (if there's 2/3 or 1/2 elements, they will be aligned)
-    &::after {
-        content: '';
-        flex: auto;
+    @media screen and (min-width: 700px) {
+        grid-template-columns: repeat(auto-fill, 48%);
+    }
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(auto-fill, 32%);
     }
 }
 
