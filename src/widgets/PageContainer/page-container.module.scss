@@ -1,0 +1,13 @@
+.page-container {
+    max-width: 100%;
+    padding: 10px;
+
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    background-color: #fff;
+    @media screen and (min-width: 700px) {
+        max-width: 80%;
+        margin: 10px auto;
+
+        border-radius: var(--border-radius);
+    }
+}
