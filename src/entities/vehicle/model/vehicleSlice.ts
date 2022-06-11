@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Vehicle } from './types';
 
 const initialState: Vehicle[] = [];
+
 const vehicleSlice = createSlice({
     initialState,
     name: 'vehicles',
@@ -17,4 +18,5 @@ const vehicleSlice = createSlice({
     },
 });
 
+export const { addMultipleVehicles, addVehicle } = vehicleSlice.actions;
 export default vehicleSlice.reducer;
