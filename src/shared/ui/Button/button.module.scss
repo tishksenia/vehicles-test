@@ -16,18 +16,25 @@
     outline: none;
     touch-action: manipulation;
 
-    &:hover {
+    &:hover,
+    &:active {
         background-color: #1a1d1a;
         border-color: #1a1d1a;
     }
 
     &:disabled {
         cursor: default;
+        opacity: var(--disabled-opacity);
+        &:hover:not(.button--outlined) {
+            background-color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
     }
 
     &:focus {
         box-shadow: var(--focus-outline);
     }
+
     &--icon {
         padding: 6px;
     }
@@ -37,6 +44,9 @@
         color: var(--accent-color);
         &:hover {
             background-color: #8ab0ab28;
+        }
+        &:hover:disabled {
+            background-color: transparent;
         }
     }
     &--fluid {

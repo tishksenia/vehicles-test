@@ -1,17 +1,18 @@
-.wrapper {
-    label {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-.input {
+.select {
     padding: 6px 12px;
+    min-width: 100%;
 
     border: 1px solid var(--accent-color);
+    color: var(--accent-color);
     border-radius: var(--border-radius);
 
+    background-color: transparent;
     outline: 0;
+
+    .option {
+        background-color: #fff;
+    }
+
     &:focus {
         box-shadow: var(--focus-outline);
     }

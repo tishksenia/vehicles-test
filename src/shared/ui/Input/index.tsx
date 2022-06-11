@@ -1,4 +1,5 @@
 import React, { forwardRef, HTMLProps } from 'react';
+import { Label } from '../Label';
 
 import styles from './input.module.scss';
 
@@ -16,13 +17,13 @@ export const Input = forwardRef<HTMLInputElement, CustomProps>(
 
         return (
             <div className={styles['wrapper']}>
-                <label>
-                    <span className={styles['label-text']}>{label}</span>
+                <Label>
+                    <span>{label}</span>
                     <input ref={ref} {...rest} className={inputClassName} />
                     {error && (
                         <span className={styles['input--error']}>{error}</span>
                     )}
-                </label>
+                </Label>
             </div>
         );
     }
