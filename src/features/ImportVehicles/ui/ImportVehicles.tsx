@@ -1,6 +1,7 @@
 import { useAppDispatch } from 'app/config/hooks';
 import { Vehicle } from 'entities/vehicle';
 import { addMultipleVehicles } from 'entities/vehicle';
+import { toast } from 'react-toastify';
 
 import { ImportFile } from './ImportFile';
 
@@ -14,6 +15,7 @@ export const ImportVehicles = () => {
             (for example, if they have required fields like id)
         */
         dispatch(addMultipleVehicles(output as Vehicle[]));
+        toast('Vehicles were imported', { type: 'success' });
     };
 
     return <ImportFile title="Import Vehicles" handleImport={handleImport} />;

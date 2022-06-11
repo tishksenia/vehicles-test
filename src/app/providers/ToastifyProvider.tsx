@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const ToastifyProvider: FC<PropsWithChildren> = ({ children }) => {
     return (
         <>
-            <ToastContainer theme="colored" />
+            <ToastContainer theme="colored" position="bottom-center" />
             {children}
         </>
     );
