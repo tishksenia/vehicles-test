@@ -6,13 +6,15 @@ import styles from './input.module.scss';
 interface CustomProps extends HTMLProps<HTMLInputElement> {
     label?: string;
     error?: boolean | string;
+    fluid?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, CustomProps>(
-    ({ label, error, className, ...rest }, ref) => {
+    ({ label, error, className, fluid, ...rest }, ref) => {
         const inputClassName = [
             styles['input'],
             error ? styles['input--error'] : '',
+            fluid ? styles['input--fluid'] : '',
         ].join(' ');
 
         return (

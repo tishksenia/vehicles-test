@@ -11,13 +11,15 @@ interface Option {
 interface CustomProps extends HTMLProps<HTMLSelectElement> {
     label?: string;
     error?: boolean | string;
+    fluid?: boolean;
     options: Option[];
 }
 
 export const Select = forwardRef<HTMLSelectElement, CustomProps>(
-    ({ label, error, options, ...rest }, ref) => {
+    ({ label, error, fluid, options, ...rest }, ref) => {
         const selectClassName = [
             styles['select'],
+            fluid ? styles['select--fluid'] : '',
             error ? styles['select--error'] : '',
         ].join(' ');
 

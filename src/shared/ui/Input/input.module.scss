@@ -18,6 +18,9 @@
     &:disabled {
         opacity: var(--disabled-opacity);
     }
+    &--fluid {
+        min-width: 100%;
+    }
     &--error {
         border-color: var(--error);
         color: var(--error);
@@ -26,5 +29,9 @@
         &:focus {
             box-shadow: var(--error-focus-outline);
         }
+    }
+
+    @media screen and (min-width: 700px) {
+        max-width: var(--default-control-width);
     }
 }
