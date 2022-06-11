@@ -1,17 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Vehicle } from './types';
 
-const initialState: Vehicle[] = [
-    {
-        id: 'v1',
-        name: 'AB23',
-        driver: 'SpongeBob SquarePants',
-        status: 'active',
-        fuelType: 'LNG',
-        equipments: [1, 2],
-    },
-];
-
+const initialState: Vehicle[] = [];
 const vehicleSlice = createSlice({
     initialState,
     name: 'vehicles',

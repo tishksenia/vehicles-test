@@ -6,7 +6,7 @@ interface Vehicle {
     driver: string;
     fuelType: FuelType;
     status: 'active' | 'inactive';
-    equipments: number[];
+    equipments?: number[];
 }
 
 export type { FuelType, Vehicle };
