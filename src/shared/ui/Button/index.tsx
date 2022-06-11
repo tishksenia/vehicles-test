@@ -2,15 +2,19 @@ import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
 
 import styles from './button.module.scss';
 
-interface CustomProps {
+interface CustomProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: boolean;
     outlined?: boolean;
     fluid?: boolean;
 }
 
-export const Button: FC<
-    PropsWithChildren<CustomProps> & ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ icon, outlined, fluid, children, ...rest }) => {
+export const Button: FC<PropsWithChildren<CustomProps>> = ({
+    icon,
+    outlined,
+    fluid,
+    children,
+    ...rest
+}) => {
     const buttonClassName = [
         styles['button'],
         icon ? styles['button--icon'] : '',
