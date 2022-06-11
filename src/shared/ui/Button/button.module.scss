@@ -1,10 +1,6 @@
 .button {
     padding: 6px 25px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
     border-radius: var(--border-radius);
@@ -36,7 +32,16 @@
     }
 
     &--icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         padding: 6px;
+        span {
+            // makes combination of icon + text look better
+            position: relative;
+            top: -2px;
+            padding-right: 6px;
+        }
     }
     &--outlined {
         background-color: transparent;
