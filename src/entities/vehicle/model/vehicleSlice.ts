@@ -1,22 +1,41 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { parseId } from 'entities/lib';
 import { Vehicle } from './types';
 
-const initialState: Vehicle[] = [];
+interface State {
+    vehicles: Vehicle[];
+    currentId: number;
+}
+
+const initialState: State = {
+    vehicles: [],
+    // stored max id, used to form id when adding new vehicle
+    currentId: 0,
+};
 
 const vehicleSlice = createSlice({
     initialState,
     name: 'vehicles',
     reducers: {
         addVehicle: (state, action: PayloadAction<Vehicle>) => {
-            // assuming that vehicle's ID is important
-            // and comes from user input instead of being generated
-            return [...state, action.payload];
+            state.currentId++;
+            state.vehicles.push({
+                ...action.payload,
+                id: `v${state.currentId}`,
+            });
         },
         addMultipleVehicles: (state, action: PayloadAction<Vehicle[]>) => {
-            return [...state, ...action.payload];
+            state.vehicles = [...state.vehicles, ...action.payload];
+            // find maximum ID out of new vehicles array
+            state.currentId = action.payload.reduce(
+                (oldId, { id }) => Math.max(oldId, parseId(id)),
+                state.currentId
+            );
         },
         removeVehicle: (state, action: PayloadAction<{ id: string }>) => {
-            return state.filter((vehicle) => action.payload.id !== vehicle.id);
+            state.vehicles = state.vehicles.filter(
+                (vehicle) => action.payload.id !== vehicle.id
+            );
         },
     },
 });
