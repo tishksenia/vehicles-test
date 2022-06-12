@@ -6,6 +6,8 @@ export {
     addVehicle,
     removeVehicle,
     updateVehicle,
+    attachEquipment,
+    removeEquipment,
     selectCurrentId,
     selectVehicleById,
     vehicleReducer,

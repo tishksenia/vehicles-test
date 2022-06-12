@@ -5,4 +5,4 @@ export {
     selectEquipments,
 } from './model';
 export type { Equipment } from './model';
-export { EquipmentCard, EquipmentList } from './ui';
+export { EquipmentCard, EquipmentList, EquipmentForm } from './ui';

@@ -50,9 +50,39 @@ const vehicleSlice = createSlice({
                 (vehicle) => action.payload.id !== vehicle.id
             );
         },
+        attachEquipment: (
+            state,
+            action: PayloadAction<{ vehicleId: string; equipmentId: number }>
+        ) => {
+            state.vehicles = state.vehicles.map((vehicle) => {
+                if (vehicle.id === action.payload.vehicleId) {
+                    vehicle.equipments?.push(action.payload.equipmentId);
+                }
+                return vehicle;
+            });
+        },
+        removeEquipment: (
+            state,
+            action: PayloadAction<{ vehicleId: string; equipmentId: number }>
+        ) => {
+            state.vehicles = state.vehicles.map((vehicle) => {
+                if (vehicle.id === action.payload.vehicleId) {
+                    vehicle.equipments = vehicle.equipments?.filter(
+                        (id) => id !== action.payload.equipmentId
+                    );
+                }
+                return vehicle;
+            });
+        },
     },
 });
 
-export const { addMultipleVehicles, addVehicle, removeVehicle, updateVehicle } =
-    vehicleSlice.actions;
+export const {
+    addMultipleVehicles,
+    addVehicle,
+    removeVehicle,
+    updateVehicle,
+    attachEquipment,
+    removeEquipment,
+} = vehicleSlice.actions;
 export default vehicleSlice.reducer;
