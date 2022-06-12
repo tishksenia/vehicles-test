@@ -1,20 +1,20 @@
 import { FC, ReactNode, useEffect, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Button } from 'shared';
 import { FormContainer } from 'widgets';
-import { Vehicle } from 'entities/vehicle';
 import { formDefaultValues, formSchema } from 'entities/vehicle/config';
-import { FormValues } from 'entities/vehicle/model';
+import { FormValues, selectVehicleById } from 'entities/vehicle/model';
 
 import { VehicleFormFields } from '../VehicleFormFields';
 import { VehicleFormModal } from '../VehicleFormModal';
 
 import styles from './vehicle-form.module.scss';
+import { EquipmentForm } from 'entities/equipment';
 
 interface Props {
-    defaultValues?: Omit<Vehicle, 'id'>;
+    defaultValues?: FormValues;
     onSubmit: SubmitHandler<FormValues>;
     uiOptions: {
         formTitle: ReactNode;
@@ -33,7 +33,6 @@ export const VehicleForm: FC<Props> = ({
         resolver: yupResolver(formSchema),
     });
     const { handleSubmit, reset } = formInstance;
-
     const submit = (values: FormValues) => {
         onSubmit(values);
         setOpen(false);
@@ -53,7 +52,7 @@ export const VehicleForm: FC<Props> = ({
                     onSubmit={handleSubmit(submit)}>
                     <h1>{formTitle}</h1>
                     <VehicleFormFields formInstance={formInstance} />
-                    {/* TODO: equipments */}
+                    <EquipmentForm vehicleId={defaultValues.id} />
                 </FormContainer>
             </VehicleFormModal>
             <span
