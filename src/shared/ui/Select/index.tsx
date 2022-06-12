@@ -1,18 +1,15 @@
 import { forwardRef, HTMLProps } from 'react';
 import { Label } from '../Label';
 
-import styles from './select.module.scss';
+import { Option } from 'shared/api';
 
-interface Option {
-    text: string;
-    value: string;
-}
+import styles from './select.module.scss';
 
 interface CustomProps extends HTMLProps<HTMLSelectElement> {
     label?: string;
     error?: boolean | string;
     fluid?: boolean;
-    options: Option[];
+    options: Option<unknown>[];
 }
 
 export const Select = forwardRef<HTMLSelectElement, CustomProps>(
@@ -29,10 +26,12 @@ export const Select = forwardRef<HTMLSelectElement, CustomProps>(
                 <Label>
                     <span>{label}</span>
                     <select ref={ref} {...rest} className={selectClassName}>
+                        {/* Initial empty value: */}
+                        <option hidden disabled value="" />
                         {options.map(({ value, text }, index) => (
                             <option
                                 className={styles['option']}
-                                value={value}
+                                value={value as string}
                                 key={index + text}>
                                 {text}
                             </option>

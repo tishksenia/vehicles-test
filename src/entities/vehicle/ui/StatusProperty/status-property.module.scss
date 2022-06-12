@@ -1,0 +1,10 @@
+.status-property {
+    display: flex;
+    align-items: center;
+
+    text-transform: capitalize;
+
+    svg {
+        margin-right: 5px;
+    }
+}

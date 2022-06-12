@@ -4,7 +4,8 @@
     h3 {
         margin-bottom: 24px;
     }
-    input {
+    input:not(:last-of-type),
+    select:not(:last-of-type) {
         margin-bottom: 12px;
     }
     .actions {
