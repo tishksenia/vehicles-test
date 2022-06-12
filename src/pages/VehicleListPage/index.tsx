@@ -1,6 +1,6 @@
 import { VehiclesList } from 'entities/vehicle';
 import { AddVehicle } from 'features/AddVehicle/ui';
-import { ImportVehicles } from 'features/ImportVehicles';
+import { ImportEquipments, ImportVehicles } from 'features/Import';
 import { PageHeader } from 'widgets/PageHeader';
 
 export const VehicleListPage = () => {
@@ -10,6 +10,7 @@ export const VehicleListPage = () => {
                 actions={
                     <>
                         <ImportVehicles />
+                        <ImportEquipments />
                         <AddVehicle />
                     </>
                 }>

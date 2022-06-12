@@ -1,14 +1,11 @@
 .form {
-    h1,
-    h2,
-    h3 {
-        margin-bottom: 24px;
-    }
-    input:not(:last-of-type),
-    select:not(:last-of-type) {
+    h1 {
         margin-bottom: 12px;
     }
+    > div[class*='wrapper'] {
+        padding-bottom: 12px;
+    }
     .actions {
-        padding-top: 24px;
+        padding-top: 12px;
     }
 }

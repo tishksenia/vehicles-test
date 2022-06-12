@@ -1,11 +1,32 @@
 .page-header {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 
     .actions {
         display: inline-flex;
         flex-wrap: wrap;
         gap: 6px;
+    }
+
+    @media screen and (max-width: 499px) {
+        .actions {
+            padding-top: 20px;
+        }
+        button,
+        span[role='button'] > button {
+            flex-basis: 100%;
+        }
+        span[role='button'] {
+            flex-grow: 1;
+            display: flex;
+        }
+    }
+
+    @media screen and(min-width: 500px) {
+        .actions {
+            justify-content: space-evenly;
+        }
     }
 
     @media screen and(min-width: 700px) {
