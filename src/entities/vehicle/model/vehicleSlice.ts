@@ -38,6 +38,7 @@ const vehicleSlice = createSlice({
             });
         },
         addMultipleVehicles: (state, action: PayloadAction<Vehicle[]>) => {
+            // TODO: check for duplicate IDs
             state.vehicles = [...state.vehicles, ...action.payload];
             // find maximum ID out of new vehicles array
             state.currentId = action.payload.reduce(

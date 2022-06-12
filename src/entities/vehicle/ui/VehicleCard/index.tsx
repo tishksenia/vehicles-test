@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import { RemoveVehicle } from 'features/RemoveVehicle';
 import { EditVehicle } from 'features/EditVehicle';
@@ -14,7 +14,7 @@ interface Props {
     vehicle: Vehicle;
 }
 
-export const VehicleCard: FC<Props> = ({ vehicle }) => {
+export const VehicleCard: FC<Props> = memo(({ vehicle }) => {
     return (
         <div className={styles['vehicle-card']}>
             <div>
@@ -41,4 +41,4 @@ export const VehicleCard: FC<Props> = ({ vehicle }) => {
             </div>
         </div>
     );
-};
+});

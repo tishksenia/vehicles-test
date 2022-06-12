@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, memo, ReactNode, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -22,46 +22,50 @@ interface Props {
     };
 }
 
-export const VehicleForm: FC<Props> = ({
-    defaultValues = formDefaultValues,
-    onSubmit,
-    uiOptions: { trigger, formTitle },
-}) => {
-    const [open, setOpen] = useState<boolean>();
-    const formInstance = useForm({
-        defaultValues,
-        resolver: yupResolver(formSchema),
-    });
-    const { handleSubmit, reset } = formInstance;
+export const VehicleForm: FC<Props> = memo(
+    ({
+        defaultValues = formDefaultValues,
+        onSubmit,
+        uiOptions: { trigger, formTitle },
+    }) => {
+        const [open, setOpen] = useState<boolean>();
+        const formInstance = useForm({
+            defaultValues,
+            resolver: yupResolver(formSchema),
+        });
+        const { handleSubmit, reset } = formInstance;
 
-    const submit = (values: FormValues) => {
-        onSubmit(values);
-        setOpen(false);
-        reset(defaultValues);
-    };
+        const submit = (values: FormValues) => {
+            onSubmit(values);
+            setOpen(false);
+            reset(defaultValues);
+        };
 
-    useEffect(() => {
-        // update form after closing
-        !open && reset(defaultValues);
-    }, [open, defaultValues, reset]);
+        useEffect(() => {
+            // update form after closing
+            !open && reset(defaultValues);
+        }, [open, defaultValues, reset]);
 
-    return (
-        <VehicleFormContext.Provider value={formInstance}>
-            <VehicleFormModal modalState={{ open, setOpen }}>
-                <FormContainer
-                    actions={<Button>Submit</Button>}
-                    onSubmit={handleSubmit(submit)}>
-                    <h1>{formTitle}</h1>
-                    <VehicleFormFields />
-                    <EquipmentForm />
-                </FormContainer>
-            </VehicleFormModal>
-            <span
-                role="button"
-                onClick={() => setOpen(true)}
-                className={styles.trigger}>
-                {trigger}
-            </span>
-        </VehicleFormContext.Provider>
-    );
-};
+        return (
+            <VehicleFormContext.Provider value={formInstance}>
+                {open && (
+                    <VehicleFormModal modalState={{ open, setOpen }}>
+                        <FormContainer
+                            actions={<Button>Submit</Button>}
+                            onSubmit={handleSubmit(submit)}>
+                            <h1>{formTitle}</h1>
+                            <VehicleFormFields />
+                            <EquipmentForm />
+                        </FormContainer>
+                    </VehicleFormModal>
+                )}
+                <span
+                    role="button"
+                    onClick={() => setOpen(true)}
+                    className={styles.trigger}>
+                    {trigger}
+                </span>
+            </VehicleFormContext.Provider>
+        );
+    }
+);
