@@ -10,7 +10,7 @@ export const ImportVehicles = () => {
 
     const handleImport = (output: unknown[]) => {
         /*
-            here and in the ImportEquipmentы component I assume that
+            here and in the ImportEquipments component I assume that
             I don't need to validate objects inside the json files
             (for example, if they have required fields like id)
         */

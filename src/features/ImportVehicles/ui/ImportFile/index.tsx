@@ -1,10 +1,10 @@
 import { ChangeEvent, FC, MouseEventHandler, useRef } from 'react';
+import { toast } from 'react-toastify';
 
 import { Button } from 'shared';
 import { readJsonFile } from 'features/ImportVehicles/lib/readJsonFile';
 
 import styles from './import-file.module.scss';
-import { toast } from 'react-toastify';
 
 interface Props {
     title?: string;
@@ -16,14 +16,15 @@ export const ImportFile: FC<Props> = ({ title = 'Import', handleImport }) => {
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
-            const fileUploaded = event.target.files[0];
-            readJsonFile(fileUploaded)
+            const file = event.target.files[0];
+            readJsonFile(file)
                 .then((output) => output && handleImport(output))
                 .catch((error) => {
                     toast(error, { type: 'error' });
                 });
         }
     };
+
     const handleClick: MouseEventHandler<HTMLButtonElement> = () =>
         fileInputRef?.current?.click();
 
