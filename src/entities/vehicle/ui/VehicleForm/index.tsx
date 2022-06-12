@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -14,16 +14,16 @@ import { VehicleFormModal } from '../VehicleFormModal';
 interface Props {
     defaultValues?: Omit<Vehicle, 'id'>;
     onSubmit: SubmitHandler<FormValues>;
-    texts: {
+    uiOptions: {
         formTitle: ReactNode;
-        actionButtonContent: ReactNode;
+        trigger: ReactNode;
     };
 }
 
 export const VehicleForm: FC<Props> = ({
     defaultValues = formDefaultValues,
     onSubmit,
-    texts: { actionButtonContent, formTitle },
+    uiOptions: { trigger, formTitle },
 }) => {
     const [open, setOpen] = useState<boolean>();
     const formInstance = useForm({
@@ -38,6 +38,11 @@ export const VehicleForm: FC<Props> = ({
         reset(defaultValues);
     };
 
+    useEffect(() => {
+        // update form after closing
+        !open && reset(defaultValues);
+    }, [open, defaultValues, reset]);
+
     return (
         <>
             <VehicleFormModal modalState={{ open, setOpen }}>
@@ -49,7 +54,9 @@ export const VehicleForm: FC<Props> = ({
                     {/* TODO: equipments */}
                 </FormContainer>
             </VehicleFormModal>
-            <Button onClick={() => setOpen(true)}>{actionButtonContent}</Button>
+            <span role="button" onClick={() => setOpen(true)}>
+                {trigger}
+            </span>
         </>
     );
 };

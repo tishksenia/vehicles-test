@@ -5,6 +5,7 @@ export {
     addMultipleVehicles,
     addVehicle,
     removeVehicle,
+    updateVehicle,
     selectCurrentId,
     selectVehicleById,
     selectVehicles,

@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import { FC, PropsWithChildren, ReactNode } from 'react';
 
 import styles from './page-header.module.scss';
 
@@ -11,9 +11,9 @@ export const PageHeader: FC<PropsWithChildren<Props>> = ({
     children,
 }) => {
     return (
-        <div className={styles['page-header']}>
+        <header className={styles['page-header']}>
             <div className={styles.title}>{children}</div>
             <div className={styles.actions}>{actions}</div>
-        </div>
+        </header>
     );
 };

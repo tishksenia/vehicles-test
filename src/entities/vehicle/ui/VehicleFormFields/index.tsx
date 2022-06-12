@@ -1,25 +1,27 @@
 import { FC } from 'react';
 import { Controller, UseFormReturn, useFormState } from 'react-hook-form';
 
-import { Vehicle } from 'entities/vehicle';
 import { Input, Select } from 'shared';
 import { fuelTypeOptions, statusOptions } from '../../config/selectOptions';
 import { useAppSelector } from 'app/config/hooks';
 import { selectCurrentId } from 'entities/vehicle/model/selectors';
+import { FormValues } from 'entities/vehicle/model';
 
 interface Props {
-    formInstance: UseFormReturn<Omit<Vehicle, 'id'>>;
+    formInstance: UseFormReturn<FormValues>;
 }
 
 export const VehicleFormFields: FC<Props> = ({ formInstance }) => {
-    const { control, register } = formInstance;
+    const { control, register, getValues } = formInstance;
     const { errors } = useFormState({ control });
 
     const currentId = useAppSelector(selectCurrentId);
 
+    const id = getValues('id');
+
     return (
         <>
-            <Input label="ID" disabled value={`v${currentId + 1}`} />
+            <Input label="ID" disabled value={id || `v${currentId + 1}`} />
             <Input
                 label="Name"
                 error={errors.name?.message}

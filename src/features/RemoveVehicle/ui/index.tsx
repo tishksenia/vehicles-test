@@ -15,11 +15,11 @@ export const RemoveVehicle: FC<Props> = ({ id }) => {
     };
 
     return (
-        <>
+        <div>
             <ConfirmationModal modalState={{ open, setOpen }} id={id} />
-            <Button outlined onClick={handleClick}>
+            <Button onClick={handleClick} outlined aria-label="Remove Vehicle">
                 <TrashIcon color={getCSSVariableValue('--accent-color')} />
             </Button>
-        </>
+        </div>
     );
 };

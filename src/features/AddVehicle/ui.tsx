@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 
 import { useAppDispatch } from 'app/config/hooks';
 import { addVehicle, Vehicle, VehicleForm } from 'entities/vehicle';
+import { Button } from 'shared';
 
 export const AddVehicle = () => {
     const dispatch = useAppDispatch();
@@ -15,9 +16,9 @@ export const AddVehicle = () => {
         <>
             <VehicleForm
                 onSubmit={handleSubmit}
-                texts={{
+                uiOptions={{
                     formTitle: 'Add Vehicle',
-                    actionButtonContent: 'Add Vehicle',
+                    trigger: <Button>Add Vehicle</Button>,
                 }}
             />
         </>

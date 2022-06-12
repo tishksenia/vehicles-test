@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { parseId } from 'entities/vehicle';
+import { FormValues } from './formValues';
 import { Vehicle } from './types';
 
 interface State {
@@ -17,11 +18,23 @@ const vehicleSlice = createSlice({
     initialState,
     name: 'vehicles',
     reducers: {
-        addVehicle: (state, action: PayloadAction<Omit<Vehicle, 'id'>>) => {
+        addVehicle: (state, action: PayloadAction<FormValues>) => {
+            // can mutate state because redux toolkit uses Immer in it's reducers
             state.currentId++;
             state.vehicles.push({
                 ...action.payload,
                 id: `v${state.currentId}`,
+            });
+        },
+        updateVehicle: (
+            state,
+            action: PayloadAction<FormValues & { id: string }>
+        ) => {
+            state.vehicles = state.vehicles.map((vehicle) => {
+                if (vehicle.id === action.payload.id) {
+                    return action.payload;
+                }
+                return vehicle;
             });
         },
         addMultipleVehicles: (state, action: PayloadAction<Vehicle[]>) => {
@@ -40,6 +53,6 @@ const vehicleSlice = createSlice({
     },
 });
 
-export const { addMultipleVehicles, addVehicle, removeVehicle } =
+export const { addMultipleVehicles, addVehicle, removeVehicle, updateVehicle } =
     vehicleSlice.actions;
 export default vehicleSlice.reducer;

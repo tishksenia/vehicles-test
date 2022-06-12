@@ -15,6 +15,7 @@ export const TrashIcon: FC<Props> = ({ color = '#fff' }) => {
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round">
+            <title>Trash icon</title>
             <path stroke="none" d="M0 0h24v24H0z" />
             <line x1="4" y1="7" x2="20" y2="7" />
             <line x1="10" y1="11" x2="10" y2="17" />

@@ -1,3 +1,3 @@
 import { Vehicle } from './types';
 
-export type FormValues = Omit<Vehicle, 'id'>;
+export type FormValues = Omit<Vehicle, 'id'> & { id?: string };
