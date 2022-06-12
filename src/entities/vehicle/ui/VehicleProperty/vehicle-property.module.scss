@@ -1,15 +1,15 @@
 .vehicle-property {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
     .value {
         overflow-wrap: anywhere;
-        flex-basis: 60%;
+        text-align: right;
     }
 
     .title {
-        flex-basis: 25%;
         padding-right: 5px;
-
+        justify-content: flex-start;
         font-weight: 600;
     }
 
