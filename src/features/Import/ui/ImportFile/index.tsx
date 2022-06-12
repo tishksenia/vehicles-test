@@ -2,7 +2,7 @@ import { ChangeEvent, FC, MouseEventHandler, useRef } from 'react';
 import { toast } from 'react-toastify';
 
 import { Button } from 'shared';
-import { readJsonFile } from 'features/ImportVehicles/lib/readJsonFile';
+import { readJsonFile } from '../../lib/readJsonFile';
 
 import styles from './import-file.module.scss';
 

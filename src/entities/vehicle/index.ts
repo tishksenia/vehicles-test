@@ -8,6 +8,7 @@ export {
     updateVehicle,
     selectCurrentId,
     selectVehicleById,
+    vehicleReducer,
     selectVehicles,
 } from './model';
 export type { Vehicle, VehicleStatus, FuelType } from './model';
