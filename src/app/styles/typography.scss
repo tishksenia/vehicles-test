@@ -1,0 +1,36 @@
+@import '@fontsource/roboto';
+@import '@fontsource/roboto/700.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/300.css';
+
+.base-font {
+    font-family: var(--font-family);
+    color: #333;
+}
+
+body,
+input,
+select {
+    @extend .base-font;
+}
+
+.heading {
+    @extend .base-font;
+    font-weight: 500;
+}
+
+h1 {
+    @extend .heading;
+    font-size: 1.7rem;
+}
+
+h2 {
+    @extend .heading;
+    font-size: 1.4rem;
+}
+
+h3 {
+    @extend .heading;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}

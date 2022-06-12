@@ -1,0 +1,37 @@
+.wrapper {
+    label {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.input {
+    padding: 6px 12px;
+
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+
+    outline: 0;
+    &:focus {
+        box-shadow: var(--focus-outline);
+    }
+    &:disabled {
+        opacity: var(--disabled-opacity);
+    }
+    &--fluid {
+        min-width: 100%;
+    }
+    &--error {
+        border-color: var(--error);
+        color: var(--error);
+
+        font-weight: 400;
+        &:focus {
+            box-shadow: var(--error-focus-outline);
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+        max-width: var(--default-control-width);
+    }
+}
