@@ -1,0 +1,17 @@
+.attach-equipment {
+    &:not(:empty) {
+        padding-top: 10px;
+    }
+    .warning {
+        padding-top: 10px;
+        opacity: 0.6;
+    }
+    .add-select {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        div[class*='wrapper'] {
+            flex-grow: 1;
+        }
+    }
+}

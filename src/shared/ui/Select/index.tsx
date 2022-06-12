@@ -27,7 +27,9 @@ export const Select = forwardRef<HTMLSelectElement, CustomProps>(
                     <span>{label}</span>
                     <select ref={ref} {...rest} className={selectClassName}>
                         {/* Initial empty value: */}
-                        <option hidden disabled value="" />
+                        <option hidden disabled value="">
+                            -
+                        </option>
                         {options.map(({ value, text }, index) => (
                             <option
                                 className={styles['option']}
