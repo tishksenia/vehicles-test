@@ -1,26 +1,26 @@
-import { useAppSelector } from 'app/config/hooks';
-import { selectVehicleById } from 'entities/vehicle';
-import React, { FC } from 'react';
-import { EquipmentList } from '../EquipmentList';
+import { FC, useContext } from 'react';
+import { UseFormReturn, useWatch } from 'react-hook-form';
 
-interface Props {
-    vehicleId?: string;
-}
+import { FormValues, VehicleFormContext } from 'entities/vehicle/model';
+import { AttachEquipment } from 'features/AttachEquipment';
+import { EquipmentCard } from '../EquipmentCard';
 
-export const EquipmentForm: FC<Props> = ({ vehicleId }) => {
-    const vehicle = useAppSelector((state) =>
-        vehicleId ? selectVehicleById(state, vehicleId) : undefined
-    );
+import styles from './equipment-form.module.scss';
+
+export const EquipmentForm: FC = () => {
+    const { control } = useContext(
+        VehicleFormContext
+    ) as UseFormReturn<FormValues>;
+
+    const equipments = useWatch({ name: 'equipments', control });
 
     return (
-        <div>
-            {vehicle && (
-                <EquipmentList
-                    ids={vehicle.equipments || []}
-                    vehicleId={vehicle?.id}
-                    edit
-                />
-            )}
+        <div className={styles['equipment-form']}>
+            <h3>Equipments:</h3>
+            {equipments?.map((id) => (
+                <EquipmentCard id={id} key={id} edit />
+            ))}
+            <AttachEquipment />
         </div>
     );
 };

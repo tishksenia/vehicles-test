@@ -1,20 +1,16 @@
 import { FC } from 'react';
-import { useAppDispatch, useAppSelector } from 'app/config/hooks';
+import { useAppSelector } from 'app/config/hooks';
 import { selectEquipmentById } from 'entities/equipment';
-import { Button, getCSSVariableValue, TrashIcon } from 'shared';
-import { removeEquipment } from 'entities/vehicle';
+import { RemoveEquipment } from 'features/RemoveEquipment';
 
 import styles from './equipment-card.module.scss';
-import { toast } from 'react-toastify';
-import { RemoveEquipmentFromVehicle } from 'features/RemoveEquipmentFromVehicle';
 
 interface Props {
     id: number;
     edit?: boolean;
-    vehicleId?: string;
 }
 
-export const EquipmentCard: FC<Props> = ({ id, edit, vehicleId }) => {
+export const EquipmentCard: FC<Props> = ({ id, edit }) => {
     const equipment = useAppSelector((state) => selectEquipmentById(state, id));
 
     // assumption: if there is no vehicle with such id in store, I should let the user know
@@ -26,13 +22,7 @@ export const EquipmentCard: FC<Props> = ({ id, edit, vehicleId }) => {
                     Unknown (<b>id:</b> {id})
                 </span>
             )}
-
-            {edit && vehicleId && (
-                <RemoveEquipmentFromVehicle
-                    equipmentId={id}
-                    vehicleId={vehicleId}
-                />
-            )}
+            {edit && <RemoveEquipment id={id} />}
         </div>
     );
 };

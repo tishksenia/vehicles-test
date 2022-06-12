@@ -5,9 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from 'shared';
 import { FormContainer } from 'widgets';
 import { formDefaultValues, formSchema } from 'entities/vehicle/config';
-import { FormValues } from 'entities/vehicle/model';
+import { FormValues, VehicleFormContext } from 'entities/vehicle/model';
 import { EquipmentForm } from 'entities/equipment';
-import { AttachEquipment } from 'features/AttachEquipment';
 
 import { VehicleFormFields } from '../VehicleFormFields';
 import { VehicleFormModal } from '../VehicleFormModal';
@@ -34,6 +33,7 @@ export const VehicleForm: FC<Props> = ({
         resolver: yupResolver(formSchema),
     });
     const { handleSubmit, reset } = formInstance;
+
     const submit = (values: FormValues) => {
         onSubmit(values);
         setOpen(false);
@@ -46,15 +46,14 @@ export const VehicleForm: FC<Props> = ({
     }, [open, defaultValues, reset]);
 
     return (
-        <>
+        <VehicleFormContext.Provider value={formInstance}>
             <VehicleFormModal modalState={{ open, setOpen }}>
                 <FormContainer
                     actions={<Button>Submit</Button>}
                     onSubmit={handleSubmit(submit)}>
                     <h1>{formTitle}</h1>
-                    <VehicleFormFields formInstance={formInstance} />
-                    <AttachEquipment vehicleId={defaultValues.id} />
-                    <EquipmentForm vehicleId={defaultValues.id} />
+                    <VehicleFormFields />
+                    <EquipmentForm />
                 </FormContainer>
             </VehicleFormModal>
             <span
@@ -63,6 +62,6 @@ export const VehicleForm: FC<Props> = ({
                 className={styles.trigger}>
                 {trigger}
             </span>
-        </>
+        </VehicleFormContext.Provider>
     );
 };

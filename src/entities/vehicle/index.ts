@@ -6,12 +6,11 @@ export {
     addVehicle,
     removeVehicle,
     updateVehicle,
-    attachEquipment,
-    removeEquipment,
     selectCurrentId,
     selectVehicleById,
     vehicleReducer,
     selectVehicles,
+    VehicleFormContext,
 } from './model';
 export type { Vehicle, VehicleStatus, FuelType } from './model';
 
