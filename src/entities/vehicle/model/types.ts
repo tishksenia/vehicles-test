@@ -1,12 +1,14 @@
 type FuelType = 'LNG' | 'Diesel' | 'CNG' | 'Electrical';
 
+type VehicleStatus = 'active' | 'inactive';
+
 interface Vehicle {
     id: string;
     name: string;
     driver: string;
     fuelType: FuelType;
-    status: 'active' | 'inactive';
+    status: VehicleStatus;
     equipments?: number[];
 }
 
-export type { FuelType, Vehicle };
+export type { FuelType, Vehicle, VehicleStatus };

@@ -8,15 +8,17 @@ export const VehiclesList = () => {
     const vehicles = useAppSelector(selectVehicles);
 
     return (
-        <div className={styles['vehicles-list']}>
-            {vehicles.map((vehicle) => (
-                <VehicleCard vehicle={vehicle} key={vehicle.id} />
-            ))}
+        <>
+            <div className={styles['vehicles-list']}>
+                {vehicles.map((vehicle) => (
+                    <VehicleCard vehicle={vehicle} key={vehicle.id} />
+                ))}
+            </div>
             {!vehicles.length && (
                 <p className={styles['empty-list']}>
                     No vehicles could be found.
                 </p>
             )}
-        </div>
+        </>
     );
 };

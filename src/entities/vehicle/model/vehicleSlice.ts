@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { parseId } from 'entities/lib';
+import { parseId } from 'entities/vehicle';
 import { Vehicle } from './types';
 
 interface State {
@@ -17,7 +17,7 @@ const vehicleSlice = createSlice({
     initialState,
     name: 'vehicles',
     reducers: {
-        addVehicle: (state, action: PayloadAction<Vehicle>) => {
+        addVehicle: (state, action: PayloadAction<Omit<Vehicle, 'id'>>) => {
             state.currentId++;
             state.vehicles.push({
                 ...action.payload,
