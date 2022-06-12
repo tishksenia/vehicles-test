@@ -37,7 +37,9 @@ export const ImportFile: FC<Props> = ({ title = 'Import', handleImport }) => {
                 ref={fileInputRef}
                 onChange={handleChange}
             />
-            <Button onClick={handleClick}>{title}</Button>
+            <Button outlined onClick={handleClick}>
+                {title}
+            </Button>
         </>
     );
 };
