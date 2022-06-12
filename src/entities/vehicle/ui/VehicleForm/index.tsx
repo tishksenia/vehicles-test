@@ -11,6 +11,8 @@ import { FormValues } from 'entities/vehicle/model';
 import { VehicleFormFields } from '../VehicleFormFields';
 import { VehicleFormModal } from '../VehicleFormModal';
 
+import styles from './vehicle-form.module.scss';
+
 interface Props {
     defaultValues?: Omit<Vehicle, 'id'>;
     onSubmit: SubmitHandler<FormValues>;
@@ -54,7 +56,10 @@ export const VehicleForm: FC<Props> = ({
                     {/* TODO: equipments */}
                 </FormContainer>
             </VehicleFormModal>
-            <span role="button" onClick={() => setOpen(true)}>
+            <span
+                role="button"
+                onClick={() => setOpen(true)}
+                className={styles.trigger}>
                 {trigger}
             </span>
         </>
