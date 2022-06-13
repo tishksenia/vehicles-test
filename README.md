@@ -1,8 +1,12 @@
 # How to build and run
 
-`yarn start` - run locally
+`yarn` (`npm install`) - install dependencies
 
-`yarn build` - build
+`yarn start` (`npm run start`) - run locally
+
+`yarn build` (`npm run build`) - build
+
+`yarn test` (`npm run tests`) - run tests
 
 App is also deployed here: https://celebrated-meringue-9c851d.netlify.app/
 
