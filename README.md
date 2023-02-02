@@ -12,9 +12,9 @@ App is also deployed here: https://celebrated-meringue-9c851d.netlify.app/
 
 ### Files to test the import features: 
 
-[vehicles.json](https://raw.githubusercontent.com/tishksenia/vehicles-test/main/src/__tests__/test-files/vehicles.json?token=GHSAT0AAAAAAB56PKZUEIYCDD6OEOAC6FKKY63YM5Q)
+[vehicles.json](https://raw.githubusercontent.com/tishksenia/vehicles-test/main/src/__tests__/test-files/vehicles.json)
 
-[equipment.json](https://raw.githubusercontent.com/tishksenia/vehicles-test/main/src/__tests__/test-files/equipments.json?token=GHSAT0AAAAAAB56PKZUPKLLDVCEMAOS6XQ4Y63YNUA)
+[equipment.json](https://raw.githubusercontent.com/tishksenia/vehicles-test/main/src/__tests__/test-files/equipments.json)
 
 ## Known bugs/Things to improve
 
