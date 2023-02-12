@@ -29,6 +29,7 @@ export const EditVehicle: FC<Props> = ({ id }) => {
         <VehicleForm
             onSubmit={handleSubmit}
             defaultValues={defaultValues}
+            key={defaultValues?.id}
             uiOptions={{
                 formTitle: 'Edit Vehicle',
                 trigger: <Button outlined>Edit</Button>,

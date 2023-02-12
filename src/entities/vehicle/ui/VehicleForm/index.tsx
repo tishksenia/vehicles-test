@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode, useEffect, useState } from 'react';
+import { FC, memo, ReactNode, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -40,11 +40,6 @@ export const VehicleForm: FC<Props> = memo(
             setOpen(false);
             reset(defaultValues);
         };
-
-        useEffect(() => {
-            // update form after closing
-            !open && reset(defaultValues);
-        }, [open, defaultValues, reset]);
 
         return (
             <VehicleFormContext.Provider value={formInstance}>

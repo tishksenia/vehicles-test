@@ -16,6 +16,7 @@ export const AddVehicle = () => {
         <>
             <VehicleForm
                 onSubmit={handleSubmit}
+                key="add"
                 uiOptions={{
                     formTitle: 'Add Vehicle',
                     trigger: <Button>Add Vehicle</Button>,
